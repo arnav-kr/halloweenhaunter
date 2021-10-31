@@ -84,7 +84,7 @@ main {
 }
 
 .letter {
-  width: 100%;
+  width: calc(100% - 8px);
   min-width: 250px;
   max-width: 500px;
   aspect-ratio: 3/2;
