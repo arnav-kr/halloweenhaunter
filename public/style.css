@@ -1,0 +1,251 @@
+body {
+  width: 100%;
+  min-height: 100%;
+  background: #212121;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Handwrite Inkblot', serif;
+  font-weight: bold;
+  background-image: url(https://www.wowpatterns.com/assets/files/resource_thumbs/spooky-faces1.jpg);
+  background-blend-mode: multiply;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  padding: 8px;
+  border: 0;
+  border-bottom: 0;
+  box-shadow: 0 2px 0 0 red;
+  background-color: transparent;
+  width: 100%;
+  outline: 0;
+  color: red;
+  margin-bottom: 8px;
+  font-family: 'Handwrite Inkblot', serif;
+  font-weight: bold;
+  width: 100%;
+}
+
+button {
+  border: 0;
+  box-shadow: 0 0 0 2px red;
+  background-color: transparent;
+  color: red;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-family: 'Handwrite Inkblot', serif;
+  font-weight: bold;
+  transform: box-shadow 200ms ease;
+}
+
+button:hover {
+  box-shadow: 0 0 0 3px red;
+}
+
+header {
+  text-align: center;
+}
+
+::placeholder {
+  color: red;
+}
+
+#form {
+  box-sizing: border-box;
+  margin: 8px;
+}
+
+.slide_container {
+  padding: 8px;
+  width: 100%;
+}
+
+h1, h2 {
+  font-weight: 900;
+  font-family: 'Handwrite Inkblot', serif;
+}
+
+p {
+  font-size: 18px;
+  font-family: 'Handwrite Inkblot', serif;
+}
+
+main {
+  padding: 1rem;
+}
+
+.wrapper {
+  perspective: 1000px;
+}
+
+.letter {
+  width: 100%;
+  min-width: 250px;
+  max-width: 500px;
+  aspect-ratio: 3/2;
+  min-height: 166.67px;
+  background-color: #c20202;
+  padding: 8px;
+  position: relative;
+  perspective: 500px;
+  margin: 100px 0 30px 0;
+  animation: letter_wave 3s ease-in-out 0s infinite forwards;
+}
+
+#card {
+  height: 80%;
+  width: calc(100% - 16px);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  bottom: 8px;
+  margin-right: 8px;
+  padding-bottom: 8px;
+  z-index: 1;
+  box-shadow: 0 0 10px 5px rgba(255, 0, 0, .5);
+}
+
+.letter.open #card {
+  animation: card_up .5s ease-in-out 1.5s forwards;
+}
+
+.front_cover {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 95%;
+  background-color: #ff0000;
+  clip-path: polygon(100% 0, 100% 100%, 0% 100%, 0 0, 51% 38%);
+  z-index: 2;
+}
+
+.upper_flap {
+  height: 50%;
+  width: 100%;
+  background-color: #c20202;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  clip-path: polygon(100% 0, 100% 20%, 50% 100%, 0 20%, 0 0);
+  z-index: 3;
+}
+
+.letter.open .upper_flap {
+  animation: flap_open .5s ease-in .7s 1 forwards;
+}
+
+.sticker {
+  z-index: 5;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+}
+
+.devils_letter {
+  margin-top: 4px;
+}
+
+.pumpkin {
+  font-size: 50px;
+}
+
+.greeting_text_container {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+a:link, a {
+  color: yellow;
+  text-decoration: double;
+}
+
+@keyframes card_up {
+  0% {
+    bottom: 8px;
+  }
+  100% {
+    bottom: 75%;
+  }
+}
+
+@keyframes card_down {
+  from {
+    bottom: 75%;
+  }
+  to {
+    bottom: 8px;
+  }
+}
+
+@keyframes flap_open {
+  0% {
+    transform-origin: top;
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform-origin: top;
+    transform: rotateX(180deg);
+    z-index: 1;
+  }
+}
+
+@keyframes flap_close {
+  0% {
+    transform-origin: top;
+    transform: rotateX(180deg);
+    z-index: 1;
+  }
+  100% {
+    transform-origin: top;
+    transform: rotateX(0deg);
+    z-index: 3;
+  }
+}
+
+@keyframes letter_wave {
+  0%, 100% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes letter_send {
+  0% {
+    transform: rotateX(0deg) translate(0);
+  }
+  25% {
+    transform: rotateX(0deg) translate(0);
+  }
+  50% {
+    transform: rotateX(75deg);
+    opacity: 1;
+  }
+  77% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateZ(-1000px) rotateX(89deg);
+    opacity: 0;
+  }
+}

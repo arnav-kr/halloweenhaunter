@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://halloweenhaunter.repl.co/fonts.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="style.css">
+	<title>Halloween Haunter!🎃</title>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=7">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+	<link rel="apple-touch-icon" href="favicon.jpg">
+</head>
+
+<body>
+	<header>
+		<h1>Welcome to Halloween Haunter!</h1>
+		<h2>This Halloween, Let's haunt all!</h2>
+		<p>Enter the details of the <b>person</b> that you want to haunt</p>
+  </header>
+  <main>
+    <div class="wrapper">
+      <div class="letter open" id="letter">
+        <div class="upper_flap" id="upf"></div>
+        <div class="front_cover"></div>
+        <div class="sticker">
+          <span class="pumpkin">🎃</span>
+          <span class="devils_letter">Devil's Letter</span>
+        </div>
+        <form action="https://halloweenhaunter.repl.co/haunt" onsubmit="form(event)" method="POST"
+          enctype="application/json" data-fields="email" id="card">
+          <div class="slide_container">
+            <input required type="email" name="email" title="Enter Their Email" aria-placeholder="Enter Their Email"
+              placeholder="Enter Their Email">
+          </div>
+          <button type="submit" name="haunt" id="haunt">Haunt</button>
+        </form>
+      </div>
+      <div class="greeting_text_container" id="gtc">
+        <div class="greeting_text" id="greeting_text">
+          Happy Halloween!
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    Made with witchcraft 🧹 by <a href="http://arnav.bio.link">Arnav</a>🎃.
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
