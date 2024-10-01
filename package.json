@@ -1,0 +1,31 @@
+{
+  "name": "halloweenhaunter",
+  "version": "1.0.0",
+  "description": "Halloween Haunter is a fun tool to send haunting messages to friends on halloween",
+  "main": "index.migrate.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.migrate.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnav-kr/halloweenhaunter.git"
+  },
+  "keywords": [
+    "halloween",
+    "arnav",
+    "slack"
+  ],
+  "author": "arnav-kr (https://github.com/arnav-kr)",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/arnav-kr/halloweenhaunter/issues"
+  },
+  "homepage": "https://github.com/arnav-kr/halloweenhaunter#readme",
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "@fastify/rate-limit": "^10.1.0",
+    "@fastify/static": "^8.0.1",
+    "fastify": "^5.0.0"
+  }
+}
