@@ -1,50 +1,64 @@
+@import url("fonts.css");
+@import url("https://fonts.googleapis.com/css2?family=Griffy&display=swap");
+
 body {
+  padding: clamp(8px, 2vw, 16px);
   width: 100%;
   min-height: 100%;
-  background: #212121;
-  color: red;
+  background: #000000;
+  color: #fe9b13;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Handwrite Inkblot', serif;
+  font-family: "Griffy", system-ui;
   font-weight: bold;
-  background-image: url(https://www.wowpatterns.com/assets/files/resource_thumbs/spooky-faces1.jpg);
-  background-blend-mode: multiply;
+  background-image: url(/assets/background.webp);
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 input {
-  padding: 8px;
+  padding: 8px 8px 24px 8px;
   border: 0;
-  border-bottom: 0;
-  box-shadow: 0 2px 0 0 red;
-  background-color: transparent;
-  width: 100%;
   outline: 0;
-  color: red;
+  border-bottom: 0;
+  background-color: transparent;
+  background: url("/assets/input_border.png");
+  background-size: contain;
+  font-size: 1.2rem;
+  height: 40px;
+  color: #330101;
   margin-bottom: 8px;
-  font-family: 'Handwrite Inkblot', serif;
+  font-family: "Handwrite Inkblot", serif;
   font-weight: bold;
   width: 100%;
+}
+input::placeholder {
+  color: transparent;
+}
+input:placeholder-shown {
+  background: url("/assets/placeholder.png");
+  background-size: contain;
 }
 
 button {
   border: 0;
-  box-shadow: 0 0 0 2px red;
+  width: 84px;
+  height: 46px;
   background-color: transparent;
-  color: red;
+  color: transparent;
+  background: url("/assets/button.png");
+  background-size: contain;
   padding: 4px 8px;
   cursor: pointer;
-  font-family: 'Handwrite Inkblot', serif;
-  font-weight: bold;
-  transform: box-shadow 200ms ease;
+  transition: filter 200ms ease;
 }
 
 button:hover {
-  box-shadow: 0 0 0 3px red;
+  filter: contrast(1.5);
 }
 
 header {
@@ -65,14 +79,21 @@ header {
   width: 100%;
 }
 
-h1, h2 {
+h1 {
   font-weight: 900;
-  font-family: 'Handwrite Inkblot', serif;
+  font-family: "Griffy", system-ui;
+  margin: 0.5rem 0 1rem 0;
 }
 
+h2 {
+  font-size: 24px;
+  font-family: "Handwrite Inkblot", system-ui;
+  margin: 0 0 1rem 0;
+}
 p {
   font-size: 18px;
-  font-family: 'Handwrite Inkblot', serif;
+  margin-bottom: 1rem;
+  font-family: "Handwrite Inkblot", system-ui;
 }
 
 main {
@@ -90,6 +111,8 @@ main {
   aspect-ratio: 3/2;
   min-height: 166.67px;
   background-color: #c20202;
+  background-image: url("/assets/envelope_texture.jpg");
+  background-size: cover;
   padding: 8px;
   position: relative;
   perspective: 500px;
@@ -100,7 +123,9 @@ main {
 #card {
   height: 80%;
   width: calc(100% - 16px);
-  background-color: #fff;
+  background-color: transparent;
+  background-image: url("/assets/letter_texture.png");
+  background-size: cover;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -110,11 +135,11 @@ main {
   margin-right: 8px;
   padding-bottom: 8px;
   z-index: 1;
-  box-shadow: 0 0 10px 5px rgba(255, 0, 0, .5);
+  box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.5);
 }
 
 .letter.open #card {
-  animation: card_up .5s ease-in-out 1.5s forwards;
+  animation: card_up 0.5s ease-in-out 1.5s forwards;
 }
 
 .front_cover {
@@ -125,6 +150,9 @@ main {
   right: 0;
   height: 95%;
   background-color: #ff0000;
+  background-image: url("/assets/envelope_texture.jpg");
+  background-size: cover;
+  filter: contrast(1.1) brightness(1.3);
   clip-path: polygon(100% 0, 100% 100%, 0% 100%, 0 0, 51% 38%);
   z-index: 2;
 }
@@ -133,6 +161,8 @@ main {
   height: 50%;
   width: 100%;
   background-color: #c20202;
+  background-image: url("/assets/envelope_texture.jpg");
+  background-size: cover;
   position: absolute;
   top: 0;
   left: 0;
@@ -142,7 +172,7 @@ main {
 }
 
 .letter.open .upper_flap {
-  animation: flap_open .5s ease-in .7s 1 forwards;
+  animation: flap_open 0.5s ease-in 0.7s 1 forwards;
 }
 
 .sticker {
@@ -160,22 +190,27 @@ main {
 }
 
 .devils_letter {
-  margin-top: 4px;
-}
-
-.pumpkin {
-  font-size: 50px;
+  margin-top: 6px;
 }
 
 .greeting_text_container {
+  font-family: "Handwrite Inkblot", system-ui;
   text-align: center;
   font-size: 1.3rem;
   font-weight: bold;
 }
 
-a:link, a {
-  color: yellow;
-  text-decoration: double;
+a:link,
+a {
+  color: #862fe0;
+  text-decoration: wavy;
+}
+
+footer p {
+  font-size: 1rem;
+  margin: 0.2rem 0;
+  font-family: "Griffy", system-ui;
+  text-align: center;
 }
 
 @keyframes card_up {
@@ -222,7 +257,8 @@ a:link, a {
 }
 
 @keyframes letter_wave {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(2px);
   }
   50% {

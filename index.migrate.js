@@ -15,9 +15,14 @@ const fastify = Fastify({
 });
 
 await fastify.register(import("@fastify/rate-limit"), {
-  max: 10,
-  timeWindow: "1 minute",
+  global: false,
+  allowList: ["127.0.0.1", "::1"],
 });
+
+/**
+ * max: 10,
+ * timeWindow: "1 minute",
+ */
 
 await fastify.register(import("@fastify/cors"), {
   origin: false,
@@ -29,6 +34,18 @@ await fastify.register(import("@fastify/static"), {
 });
 
 let participants = [];
+fastify.post("/api/haunt", {
+  config: {
+    rateLimit: {
+      max: 10,
+      timeWindow: "1 minute",
+    },
+  },
+}, (req) => {
+  let { slack_id } = req.body;
+  fastify.log.info(`Slack ID: ${slack_id}`);
+  return { data: "success", code: 200 };
+});
 
 fastify.listen({ port: process.env.PORT || 3000 }, err => {
   if (err) throw err;

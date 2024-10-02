@@ -1,8 +1,4 @@
-@font-face {font-family: "Handwrite Inkblot";
-    src: url("https://halloweenhaunter.repl.co/1dc274c87155cbf90844c8af99a06b06.eot"); /* IE9*/
-    src: url("https://halloweenhaunter.repl.co/1dc274c87155cbf90844c8af99a06b06.eot") format("embedded-opentype"), /* IE6-IE8 */
-    url("https://halloweenhaunter.repl.co/1dc274c87155cbf90844c8af99a06b06.woff2") format("woff2"), /* chrome firefox */
-    url("https://halloweenhaunter.repl.co/1dc274c87155cbf90844c8af99a06b06.woff") format("woff"), /* chrome firefox */
-    url("https://halloweenhaunter.repl.co/1dc274c87155cbf90844c8af99a06b06.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
-    url("https://halloweenhaunter.repl.co/1dc274c87155cbf90844c8af99a06b06.svg") format("svg"); /* iOS 4.1- */
+@font-face {
+  font-family: "Handwrite Inkblot";
+  src: url("/assets/fonts/Handwrite%20Inkblot.ttf");
 }
