@@ -2,10 +2,10 @@
   "name": "halloweenhaunter",
   "version": "1.0.0",
   "description": "Halloween Haunter is a fun tool to send haunting messages to friends on halloween",
-  "main": "index.migrate.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --env-file=.env index.migrate.js"
+    "start": "node --env-file=.env index.js"
   },
   "repository": {
     "type": "git",
