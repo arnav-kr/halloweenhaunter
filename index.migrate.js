@@ -1,6 +1,14 @@
 import Fastify from "fastify";
 import path from "path";
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+import { fileURLToPath } from "url";
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import bolt from '@slack/bolt';
+const { App } = bolt;
+
+const app = new App({
+  token: process.env.SLACK_BOT_TOKEN,
+  signingSecret: process.env.SLACK_SIGNING_SECRET
+});
 
 const fastify = Fastify({
   logger: true,
@@ -16,16 +24,14 @@ await fastify.register(import("@fastify/cors"), {
   methods: ["GET", "POST"],
 });
 
-await fastify.register(import("fastify-static"), {
+await fastify.register(import("@fastify/static"), {
   root: path.join(__dirname, "public"),
 });
 
 let participants = [];
 
-fastify.get("/", () => {
-  return "Boo...";
-})
-
 fastify.listen({ port: process.env.PORT || 3000 }, err => {
   if (err) throw err;
-})
+});
+
+await app.start(8080);
