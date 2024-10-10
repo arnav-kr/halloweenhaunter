@@ -18,7 +18,8 @@
   <header>
     <h1>Welcome to Halloween Haunter!</h1>
     <h2>This Halloween, Let's haunt all!</h2>
-    <p>Enter the slack id of the <b>person</b> you want to haunt</p>
+    <p>Enter the slack id of the <b>person</b> you want to haunt <a
+        href="https://app.slack.com/client/T0266FRGM/C0159TSJVH8" target="_blank">#what-is-my-slack-id</a></p>
   </header>
   <main>
     <div class="wrapper">
@@ -32,8 +33,8 @@
         <form action="/api/haunt" onsubmit="form(event)" method="POST" enctype="application/json" data-fields="slack_id"
           id="card">
           <div class="slide_container">
-            <input required type="slack_id" autocomplete="off" autocapitalize="off" spellcheck="false" name="slack_id" title="Enter Slack ID" aria-placeholder="Enter Slack ID"
-              placeholder="Enter Slack ID">
+            <input required type="slack_id" autocomplete="off" autocapitalize="off" spellcheck="" name="slack_id"
+              title="Enter Slack ID" aria-placeholder="Enter Slack ID" placeholder="Enter Slack ID">
           </div>
           <button type="submit" name="haunt" id="haunt">Haunt</button>
         </form>
@@ -47,6 +48,7 @@
   </main>
   <footer>
     <p>Made with witchcraft 🧹 by <a href="http://gtihub.com/arnav-kr">Arnav</a>🎃.</p>
+    <p>Use <a href="https://app.slack.com/client/T0266FRGM/D07PQCN9RV4">Slack Bot</a> to control subscription</p>
     <p class="ps">PS: Check Out <a href="https://manor.hackclub.com">manor.hackclub.com</a></p>
   </footer>
   <script src="script.js"></script>

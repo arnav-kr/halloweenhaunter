@@ -42,6 +42,9 @@ function form(e) {
       if (d.code == 400 || d.error) {
         console.log("An Error Occurred!");
       }
+      if(d.code == 404) {
+        alert("Invalid Slack ID");
+      }
       document.getElementById("haunt").disabled = false;
     })
     .catch(err => {
