@@ -50,6 +50,6 @@ fastify.post("/api/haunt", {
   return { data: "success", code: 200 };
 });
 
-fastify.listen({ port: process.env.PORT || 3000 }, err => {
+fastify.listen({ port: process.env.PORT || process.env.FASTIFY_PORT || 3000 }, err => {
   if (err) throw err;
 });

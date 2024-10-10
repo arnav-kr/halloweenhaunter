@@ -53,7 +53,7 @@ export async function registerHandlers() {
     }
   });
 
-  app.start(8080);
+  app.start(process.env.SLACK_PORT);
 }
 
 export async function isValidId(slack_id) {
