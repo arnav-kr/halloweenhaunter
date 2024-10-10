@@ -1,3 +1,4 @@
+![Halloween Haunter](halloweenhaunter.png)
 # Halloween Haunter
 
 Halloween Haunter is a fun tool to send haunting messages to friends on halloween.
