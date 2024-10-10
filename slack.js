@@ -18,13 +18,13 @@ export async function registerHandlers() {
       if (db.data.unsubscribed.indexOf(user_id) !== -1) {
         await client.chat.postMessage({
           channel: user_id,
-          text: 'You are already unsubscribed from Haunt. If you would like to resubscribe, type `/subscribe`.'
+          text: 'You are already unsubscribed from Haunt. If you would like to resubscribe, type `/subscribe-haunting`.'
         });
       } else {
         unsubscribeUser(user_id);
         await client.chat.postMessage({
           channel: user_id,
-          text: 'You have been unsubscribed from Haunt. If you would like to resubscribe, type `/subscribe`.'
+          text: 'You have been unsubscribed from Haunt. If you would like to resubscribe, type `/subscribe-haunting`.'
         });
       }
     } catch (error) {
@@ -39,13 +39,13 @@ export async function registerHandlers() {
       if (db.data.unsubscribed.indexOf(user_id) === -1 && db.data.active.indexOf(user_id) !== -1) {
         await client.chat.postMessage({
           channel: user_id,
-          text: 'You are already subscribed to Haunt. If you would like to unsubscribe, type `/unsubscribe`.'
+          text: 'You are already subscribed to Haunt. If you would like to unsubscribe, type `/unsubscribe-haunting`.'
         });
       } else {
         subscribeUser(user_id);
         await client.chat.postMessage({
           channel: user_id,
-          text: 'You have been subscribed to Haunt. If you would like to unsubscribe, type `/unsubscribe`.'
+          text: 'You have been subscribed to Haunt. If you would like to unsubscribe, type `/unsubscribe-haunting`.'
         });
       }
     } catch (error) {
