@@ -2,7 +2,7 @@ import Fastify from "fastify";
 import path from "path";
 import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-import { db, registerHandlers, bulkSend, isValidId, createBatch, subscribeUser, hasntUnsubscribed } from "./slack.js";
+import { db, registerHandlers, bulkSend, isValidId, createBatch, isActiveUser, subscribeUser, hasntUnsubscribed } from "./slack.js";
 await registerHandlers();
 
 
@@ -43,7 +43,7 @@ fastify.post("/api/haunt", {
 }, async (req) => {
   let { slack_id } = req.body;
   if (!(await isValidId(slack_id))) return { code: 404, data: "Invalid Slack ID" };
-  if (hasntUnsubscribed(slack_id)) subscribeUser(slack_id);
+  if (hasntUnsubscribed(slack_id) && !isActiveUser(slack_id)) subscribeUser(slack_id);
   console.log(createBatch(10));
   await bulkSend(createBatch(10), "Arnav Kumar:")
   fastify.log.info(`Slack ID: ${slack_id}`);
