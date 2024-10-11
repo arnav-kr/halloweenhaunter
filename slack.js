@@ -67,7 +67,9 @@ export async function isValidId(slack_id) {
     return false;
   }
 }
-
+export function isActiveUser(slack_id) {
+  return db.data.active.indexOf(slack_id) > 0;
+}
 export function hasntUnsubscribed(slack_id) {
   return db.data.unsubscribed.indexOf(slack_id) === -1;
 }
