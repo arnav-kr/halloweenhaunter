@@ -75,7 +75,7 @@ export function hasntUnsubscribed(slack_id) {
 }
 
 export async function subscribeUser(slack_id) {
-  db.update(({ active }) => active.push(slack_id));
+  db.update(({ active }) => {active.push(slack_id); active = Array.from(new Set(active)); return active;});
   db.data.unsubscribed = db.data.unsubscribed.filter((usr) => usr !== slack_id);
   await db.write();
 }
