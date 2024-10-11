@@ -42,8 +42,11 @@ function form(e) {
       if (d.code == 400 || d.error) {
         console.log("An Error Occurred!");
       }
-      if(d.code == 404) {
+      if (d.code == 404) {
         alert("Invalid Slack ID");
+      }
+      if (d.statusCode == 429) {
+        alert("You are being rate limited. Please wait a minute before trying again.");
       }
       document.getElementById("haunt").disabled = false;
     })

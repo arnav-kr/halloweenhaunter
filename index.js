@@ -27,7 +27,7 @@ await fastify.register(import("@fastify/static"), {
 fastify.post("/api/haunt", {
   config: {
     rateLimit: {
-      max: 10,
+      max: 6,
       timeWindow: "1 minute",
     },
     schema: {
