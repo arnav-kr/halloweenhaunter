@@ -68,14 +68,15 @@ export async function isValidId(slack_id) {
   }
 }
 export function isActiveUser(slack_id) {
-  return db.data.active.indexOf(slack_id) > 0;
+  return db.data.active.indexOf(slack_id) !== -1;
 }
-export function hasntUnsubscribed(slack_id) {
-  return db.data.unsubscribed.indexOf(slack_id) === -1;
+
+export function isUnsubscribed(slack_id) {
+  return db.data.unsubscribed.indexOf(slack_id) !== -1;
 }
 
 export async function subscribeUser(slack_id) {
-  db.update(({ active }) => {active.push(slack_id); active = Array.from(new Set(active)); return active;});
+  db.update(({ active }) => active.push(slack_id));
   db.data.unsubscribed = db.data.unsubscribed.filter((usr) => usr !== slack_id);
   await db.write();
 }
@@ -92,7 +93,7 @@ function getHaiku() {
 }
 
 export function createBatch(n) {
-  let active = db.data.active.filter(usr => hasntUnsubscribed(usr));
+  let active = db.data.active.filter(usr => !isUnsubscribed(usr));
   let participants = [];
   for (let i = 0; i < Math.min(n, active.length); i++) {
     let ri = Math.floor(Math.random() * active.length);
